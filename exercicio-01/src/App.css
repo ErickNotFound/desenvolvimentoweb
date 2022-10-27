@@ -1,0 +1,48 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.Header {
+    height: 100px;
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Bio {
+    color: rgb(0, 255, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+    height: 47vh;
+}
+
+.Bio button {
+    background-color: gold;
+    color: green;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 0;
+}
+
+.Bio button:hover {
+    opacity: 75%;
+}
+
+.Footer {
+    height: 87px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 151px;
+}
