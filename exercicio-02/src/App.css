@@ -40,14 +40,3 @@
   color: #888;
 }
 
-.sla{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sss{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}

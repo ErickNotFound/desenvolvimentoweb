@@ -2,68 +2,69 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [contador, setContador] = useState();
+  const [contador, setContador] = useState(0);
   const [quantidade, setQuantidade] = useState(0);
   const [quantidadeMl, setQuantidadeMl] = useState(0);
-  const [meta, setMeta] = useState();
-  const [meta2, setMeta2] = useState();
-  const [mensagem, setMensagem] = useState();
+  const [mensagem, setMensagem] = useState("");
+  const [meta, setMeta] = useState(0);
+  const [resgistro, setResgistro] = useState(null);
+  const date = new Date().toLocaleString();
 
   const clique = () => {
-    if (quantidadeMl > 0) {
+    if (quantidadeMl > 0 && meta > 0) {
       setContador(contador + 1);
       calcular();
-      baterMeta();
-      setMeta(meta2);
+      setResgistro(date);
+      metaMensagem();
     } else {
-      alert("Valor inválido");
+      alert("Valores inválido");
     }
   };
 
-  const clique2 = () => {
-    if (meta2 > 0) {
-      setMeta(meta2);
-    } else {
-      alert("Valor inválido");
+  const metaMensagem = () => {
+    if ((quantidade + parseFloat(quantidadeMl)) >= meta) {
+      return setMensagem("Você bateu a meta");
     }
   };
-
-  const baterMeta = () => {
-    if (meta >= quantidade) {
-      setMensagem(`Você bateu a meta de ${quantidade}`)
-    }
-  }
 
   const calcular = () => {
-    setQuantidade(quantidade + quantidadeMl * 1);
+    setQuantidade(quantidade + parseFloat(quantidadeMl));
   };
 
   const reset = () => {
-    setContador();
+    setContador(0);
     setQuantidade(0);
-    setMensagem("")
-    setMeta()
+    setQuantidadeMl(0);
+    setMensagem(null);
+    setResgistro(null);
+    setMeta(0);
   };
 
   return (
     <>
-      <h1>{mensagem}</h1>
-      <h1>Meta do dia: {meta}</h1>
-      <input type="number" onChange={(e) => setMeta2(e.target.value)} />
-      <button onClick={clique2}>Definir meta</button>
-      <h1>Copos de água: {contador}</h1>
+      <h2>Sua meta é: {meta}</h2>
+      <h2>{mensagem}</h2>
+      <input
+        type="number"
+        value={meta}
+        onChange={(e) => setMeta(e.target.value)}
+      />
+      <h2>Copos de água: {contador}</h2>
       <h2>Você bebeu {quantidade}ml</h2>
-      <div className="sss">
-        <h1>Quantos ml tem o copo?</h1>
-      </div>
+      <h2>Quantos ml tem o copo?</h2>
       <div className="sla">
         <input
           type="number"
+          value={quantidadeMl}
           onChange={(e) => setQuantidadeMl(e.target.value)}
         />
+        <br /><br />
         <button onClick={clique}>Adicionar um copo</button>
+        <br /><br />
         <button onClick={reset}>Reset</button>
       </div>
+      <p>Ultimo copo bebido:</p>
+      <p>{resgistro}</p>
     </>
   );
 }
