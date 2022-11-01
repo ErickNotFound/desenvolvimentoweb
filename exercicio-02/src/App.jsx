@@ -7,14 +7,14 @@ function App() {
   const [quantidadeMl, setQuantidadeMl] = useState(0);
   const [mensagem, setMensagem] = useState("");
   const [meta, setMeta] = useState(0);
-  const [resgistro, setResgistro] = useState(null);
+  const [registro, setRegistro] = useState("");
   const date = new Date().toLocaleString();
 
   const clique = () => {
     if (quantidadeMl > 0 && meta > 0) {
       setContador(contador + 1);
       calcular();
-      setResgistro(date);
+      setRegistro(registro + date);
       metaMensagem();
     } else {
       alert("Valores inválido");
@@ -36,7 +36,7 @@ function App() {
     setQuantidade(0);
     setQuantidadeMl(0);
     setMensagem(null);
-    setResgistro(null);
+    setRegistro("");
     setMeta(0);
   };
 
@@ -64,7 +64,9 @@ function App() {
         <button onClick={reset}>Reset</button>
       </div>
       <p>Ultimo copo bebido:</p>
-      <p>{resgistro}</p>
+      <div>
+      <p>{registro}</p>
+      </div>
     </>
   );
 }
