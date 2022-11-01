@@ -30,7 +30,7 @@ function App() {
 
   const baterMeta = () => {
     if (meta >= quantidade) {
-      setMensagem("Você bateu a meta de " + quantidade)
+      setMensagem(`Você bateu a meta de ${quantidade}`)
     }
   }
 
