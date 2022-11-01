@@ -7,7 +7,6 @@ export const Galeria = () => {
       <br />
       <Link to={"/contatos"}>Contatos</Link>
       <br />
-      <h1>Componente Galeria</h1>
     </>
   );
 };

@@ -7,7 +7,12 @@ export const Contato = () => {
       <br />
       <Link to={"/galeria"}>Galeria</Link>
       <br />
-      <h1>Componentes Contato</h1>
+      <br />
+      <>
+        <Link to={"/contatos/1"}>Erick</Link><br />
+        <Link to={"/contatos/2"}>Giorno Giovanna</Link><br />
+        <Link to={"/contatos/3"}>Kujou</Link><br />
+      </>
     </>
   );
 };
