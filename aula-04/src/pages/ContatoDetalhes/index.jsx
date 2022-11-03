@@ -2,6 +2,10 @@ import { useParams } from "react-router-dom";
 
 export const ContatoDetalhes = () => {
   const { id } = useParams();
+  const { state } = useLocation();
+
+  console.log(state)
+
 
   const renderizaNome = () => {
     switch (id) {
@@ -16,17 +20,19 @@ export const ContatoDetalhes = () => {
     }
   };
 
-  if (id == "1") {
-    return <h1>Erick que veio do if</h1>;
-  }
+   //Renderização condiconal Através do IF
+   if(id == '1'){
+    return <h1>João que veio do if</h1>
+}
 
-  return (
-    <h1>
-      {id == "2" && "Contato: Giornno que veio do &&"}
-      {/* Contato: {renderizaNome()} */}
-      {id == 3 ? "Kazuha do Operador ternário" : null}
+return (
+    <h1> 
+        {/* Renderização Condicional com operador lógico */}
+        {id == '2' && "Contato: Amanda que veio do &&"}
+        {/* Contato: {renderizaNome()} */}
+        {/* Renderização condicional com operador Ternário */}
+        {id == 3 ? "Caroline do Operador ternário" : null}
     </h1>
-  );
+);
 
-  return <h1>Contato: {renderizaNome()}</h1>;
 };
